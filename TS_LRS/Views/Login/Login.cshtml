@@ -1,0 +1,96 @@
+﻿@model TS_LRS.Models.Login.LoginUser;
+
+@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>User Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/logincss/css.css" rel="stylesheet" />
+    <link href="~/logincss/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/logincss/style.css" rel="stylesheet" />
+    <script nonce="e1f8f500-e922-4573-8747-ef80ccb25e15">
+        (function (w, d) { !function (bb, bc, bd, be) { bb[bd] = bb[bd] || {}; bb[bd].executed = []; bb.zaraz = { deferred: [], listeners: [] }; bb.zaraz.q = []; bb.zaraz._f = function (bf) { return async function () { var bg = Array.prototype.slice.call(arguments); bb.zaraz.q.push({ m: bf, a: bg }) } }; for (const bh of ["track", "set", "debug"]) bb.zaraz[bh] = bb.zaraz._f(bh); bb.zaraz.init = () => { var bi = bc.getElementsByTagName(be)[0], bj = bc.createElement(be), bk = bc.getElementsByTagName("title")[0]; bk && (bb[bd].t = bc.getElementsByTagName("title")[0].text); bb[bd].x = Math.random(); bb[bd].w = bb.screen.width; bb[bd].h = bb.screen.height; bb[bd].j = bb.innerHeight; bb[bd].e = bb.innerWidth; bb[bd].l = bb.location.href; bb[bd].r = bc.referrer; bb[bd].k = bb.screen.colorDepth; bb[bd].n = bc.characterSet; bb[bd].o = (new Date).getTimezoneOffset(); if (bb.dataLayer) for (const bo of Object.entries(Object.entries(dataLayer).reduce(((bp, bq) => ({ ...bp[1], ...bq[1] })), {}))) zaraz.set(bo[0], bo[1], { scope: "page" }); bb[bd].q = []; for (; bb.zaraz.q.length;) { const br = bb.zaraz.q.shift(); bb[bd].q.push(br) } bj.defer = !0; for (const bs of [localStorage, sessionStorage]) Object.keys(bs || {}).filter((bu => bu.startsWith("_zaraz_"))).forEach((bt => { try { bb[bd]["z_" + bt.slice(7)] = JSON.parse(bs.getItem(bt)) } catch { bb[bd]["z_" + bt.slice(7)] = bs.getItem(bt) } })); bj.referrerPolicy = "origin"; bj.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(bb[bd]))); bi.parentNode.insertBefore(bj, bi) };["complete", "interactive"].includes(bc.readyState) ? zaraz.init() : bb.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document);
+    </script>
+</head>
+<body>
+    <section style="padding:20px">
+        <div class="container">
+
+            <div class="col-md-12 text-center">
+                <h2 class="heading-section">User Login</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="wrap d-md-flex">
+                        <div class="img" style="text-align:center;padding:100px">
+                            <img src="images/Telanganalogo.png" alt="telangana logo" style="width:100px;height:100px" />
+                            <div>
+                                <h2><span style="color:orange">Government of Telangana </span><br />Layout Regularisation Scheme 2020</h2>
+                            </div>
+                        </div>
+
+
+
+                        <div class="login-wrap p-4 p-md-5" style="background-color:#00a6cc">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                </div>
+                                <div class="w-100">
+                                    <p class="social-media d-flex justify-content-end">
+                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @id = "Save_LoginForm" }))
+                                {
+                                    
+                                    <div class="form-group mb-3">
+                                        <label asp-for="USRNAME" >User Name</label>
+                                        <input type="text" asp-for="USRNAME" class="form-control" name="USRNAME" placeholder="Username" required />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label asp-for="PASSWORD">Password</label>
+                                        <input type="password" asp-for="PASSWORD" class="form-control" name="PASSWORD" placeholder="PASSWORD" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                                    </div>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center text-white pt-3">
+                            Designed & Developed by : <a href="https://www.cgg.gov.in">
+                                <img src="images/cgg_logo.png" height="30px">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/popper.js"></script>
+    <script src="~/scripts/main.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+</body>
+</html>
+

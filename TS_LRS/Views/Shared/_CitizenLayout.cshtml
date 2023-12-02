@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telangana State Building Permission Approval and Self certification System">
+    <meta name="keywords" content="Telangana State Building Permission Approval and Self certification System">
+    <link href="~/Website/Homecss/main.css" rel="stylesheet" />
+    @*  <%--<link href="main.css" rel="stylesheet">--%>*@
+    <link rel="stylesheet" type="text/css" href="~/Website/breakingnews/breaking-news-ticker.css">
+    <link href="~/Website/Homecss/custom.css" rel="stylesheet" />
+    @* <%--Script for Whatsapp bot--%>*@
+    <script>setTimeout(function () { var e, t; e = document, (t = e.createElement("script")).type = "text/javascript", t.async = !0, t.setAttribute("data-botid", "wj6mFwF_jOJJ"), t.src = "https://botbuilder.engagely.ai/engagelyscripts/engagely_bots.js?v=" + Date.parse(new Date()), e.getElementsByTagName("body")[0].appendChild(t) }, 3e3);</script>
+    <script src="~/Website/Scripts/WebForms/GridView.js"></script>
+    <title>
+        Welcome to LAYOUT REGULARIZATION SCHEME (LRS)
+    </title>
+</head>
+<body>
+    <div class="container-fluid pl-0 pr-0 ">
+        <header>
+            @await Html.PartialAsync("_CitizenHeader")
+        </header>
+        @RenderBody()
+        <footer class="site-footer footer pl-5 pr-5">
+            @await Html.PartialAsync("_CitizenFooter")
+        </footer>
+    </div>
+    <script src="~/Website/js/jquery.js"></script>
+    <script src="~/Website/js/popper.min.js"></script>
+    <script src="~/Website/js/bootstrap.min.js"></script>
+    <script src="~/Website/js/fontsizer.js"></script>
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() + 1)).slice(-2)) + "." + (dt.getFullYear()) + " " + (("0" + dt.getHours()).slice(-2)) + ":" + (("0" + dt.getMinutes()).slice(-2));
+    </script>
+    <script type="text/javascript" src="~/Website/breakingnews/breaking-news-ticker.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+            $('#newsTicker1').breakingNews();
+            //$('#newsTicker2').data('breakingNews').next();
+        });
+    </script>
+</body>
+</html>

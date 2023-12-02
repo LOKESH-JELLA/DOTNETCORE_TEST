@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Telangana State Building Permission Approval and Self certification System" />
+    <meta name="keywords" content="Telangana State Building Permission Approval and Self certification System" />
+
+    <link href="~/Officer/Homecss/main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Officer/breakingnews/breaking-news-ticker.css">
+    @*
+    <link href="style.css" rel="stylesheet" id="bootstrapcss" />*@
+    <link href="~/Officer/Homecss/custom.css" rel="stylesheet" />
+    <link href="~/Officer/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/table.css" rel="stylesheet" />
+    @*
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>*@
+
+    <title>
+        Welcome to LAYOUT REGULARIZATION SCHEME (LRS)
+    </title>
+    <style>
+        .profile img {
+            height: 75px;
+            float: none;
+            margin-top: 5px;
+            margin: 0px auto;
+            width: 80px;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function preventBack() {
+            window.history.forward();
+        }
+
+        setTimeout("preventBack()", 0);
+
+        window.onunload = function () { null };
+    </script>
+    @*
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>*@
+    @*
+    <script type="text/javascript">
+    var interval;
+    var settimeout;
+    var newTimeout;
+    $(function () {
+
+    });
+    function SessionExpireAlert(timeout) {
+    var seconds = timeout / 1000;
+    clearInterval(interval);
+    interval = setInterval(function () {
+    seconds--;
+    document.getElementById("seconds").innerHTML = seconds;
+    }, 1000);
+
+    setTimeout(function () {
+    $("#dialog1").dialog({
+    title: "View Details",
+    buttons: {
+    Ok: function () {
+    $(this).dialog('close');
+    },
+    Refresh: function () {
+    $.ajax({
+    type: "POST",
+    // url: "Layout_Home.aspx/RefreshSession",
+    url: "Layout3.Master/RefreshSession",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (r) {
+    newTimeout = r.d;
+    SessionExpireAlert(newTimeout);
+    },
+    error: function (r) {
+    alert(r.d);
+    }
+    });
+    clearTimeout(settimeout);
+    $(this).dialog('close');
+    }
+    },
+    modal: true
+    });
+    }, timeout - 5 * 1000);
+    settimeout = setTimeout(function () {
+    var apiKey = document.getElementById('<%= hdnApiKey.ClientID %>').value;
+    var sss1 = apiKey + "LayoutLogin.aspx";
+    window.location = sss1;
+    }, timeout);
+    }
+    </script>*@
+
+    @*
+    <script src="sessionTimeout.js"></script>*@
+    <style type="text/css">
+        .body1 {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .modalBackground {
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+        }
+
+        .modalPopup {
+            background-color: #FFFFFF;
+            width: 300px;
+            border: 3px solid #0DA9D0;
+            border-radius: 12px;
+            padding: 0;
+        }
+
+            .modalPopup .header {
+                background-color: #2FBDF1;
+                height: 30px;
+                color: White;
+                line-height: 30px;
+                text-align: center;
+                font-weight: bold;
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+            }
+
+            .modalPopup .body {
+                padding: 10px;
+                min-height: 50px;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .modalPopup .footer1 {
+                padding: 6px;
+            }
+
+            .modalPopup .yes, .modalPopup .no {
+                height: 23px;
+                color: White;
+                line-height: 23px;
+                text-align: center;
+                font-weight: bold;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+            .modalPopup .yes {
+                background-color: #2FBDF1;
+                border: 1px solid #0DA9D0;
+            }
+
+            .modalPopup .no {
+                background-color: #9F9F9F;
+                border: 1px solid #5C5C5C;
+            }
+    </style>
+</head>
+<body onload="startTime();">
+    <form id="form1">
+        <div class="container-fluid pl-0 pr-0 ">
+            <asp:HiddenField ID="hdnApiKey" runat="server" />
+            @* <div id="dialog1" style="display: none">
+            Your session will expire in 5 seconds. You will now be redirected. To restart the
+            session please click on Refresh Button
+            </div>*@
+
+            @* <asp:LinkButton ID="lnkFake" runat="server" />
+            <asp:ModalPopupExtender ID="mpeTimeout" BehaviorID="mpeTimeout" runat="server" PopupControlID="pnlPopup"
+            TargetControlID="lnkFake" OkControlID="btnYes" CancelControlID="btnNo" BackgroundCssClass="modalBackground"
+            OnOkScript="ResetSession()">
+            </asp:ModalPopupExtender>
+            <asp:Panel ID="pnlPopup" runat="server" CssClass="modalPopup" Style="display: none">
+            <div class="header">
+            Session Expiring!
+            </div>
+            <div class="body1">
+            Your Session will expire in&nbsp;<span id="minutes"></span>:<span id="seconds"></span><br />
+            Do you want to reset?
+            </div>
+            <div class="footer1" align="right">
+            <asp:Button ID="btnYes" runat="server" Text="Yes" CssClass="yes" />
+            <asp:Button ID="btnNo" runat="server" Text="No" CssClass="no" />
+            </div>
+            </asp:Panel>*@
+            <header>
+                @await Html.PartialAsync("_OfficerHeader")
+            </header>
+            @RenderBody()
+            <footer class="site-footer footer pl-5 pr-5">
+                @await Html.PartialAsync("_OfficerFooter")
+            </footer>
+        </div>
+
+        <script src="~/Officer/plugins/moment/moment.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+        <script src="~/Officer/js/jquery.js"></script>
+        <script src="~/Officer/js/popper.min.js"></script>
+        <script src="~/Officer/js/bootstrap.min.js"></script>
+        <script src="~/Officer/js/fontsizer.js"></script>
+        <script src="~/Officer/js/GridView.js"></script>
+
+        <script type="text/javascript">
+
+            function startTime() {
+
+                var today = new Date();
+                day = today.getDate(),
+                    month = today.getMonth() + 1,
+                    year = today.getFullYear();
+                var x1 = today.toUTCString();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                var ampm = h >= 12 ? 'PM' : 'AM';
+                h = h % 12;
+                h = h ? h : 12; // the hour '0' should be '12'
+                // m = m < 10 ? '0' + m : m;
+                document.getElementById('datetime').innerHTML =
+                    day + "/" + month + "/" + year + '    ' + h + ":" + m + ":" + s + ' ' + ampm;
+
+                var t = setTimeout(startTime, 500);
+            }
+            function checkTime(i) {
+                if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+                return i;
+            }
+
+
+        </script>
+        <script type="text/javascript" src="~/Officer/breakingnews/breaking-news-ticker.min.js"></script>
+        <script type="text/javascript">
+
+            jQuery(document).ready(function ($) {
+
+                $('#newsTicker1').breakingNews();
+                //$('#newsTicker2').data('breakingNews').next();
+
+
+            });
+
+        </script>
+
+
+        <script type="text/javascript"
+                src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.js">
+        </script>
+        @*<script src="~/Officer/plugins/sh_datatable/SH_Datatables.js"></script>*@
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            function SessionExpireAlert(timeout) {
+                var minutes = Math.floor(timeout / 60000); // Convert milliseconds to minutes
+                var seconds = Math.floor((timeout % 60000) / 1000); // Convert the remaining milliseconds to seconds
+
+                document.getElementById("minutesIdle").innerHTML = minutes;
+                document.getElementById("secondsIdle").innerHTML = seconds;
+                document.getElementById("minutes").innerHTML = minutes;
+                document.getElementById("seconds").innerHTML = seconds;
+
+                setInterval(function () {
+                    if (seconds > 0) {
+                        seconds--;
+                    } else {
+                        if (minutes > 0) {
+                            minutes--;
+                            seconds = 59;
+                        }
+                    }
+                    document.getElementById("minutes").innerHTML = minutes;
+                    document.getElementById("seconds").innerHTML = seconds;
+                    document.getElementById("minutesIdle").innerHTML = minutes;
+                    document.getElementById("secondsIdle").innerHTML = seconds;
+                }, 1000);
+
+                setTimeout(function () {
+                    // Show Popup before 20 seconds of timeout.
+                    $find("mpeTimeout").show();
+                }, timeout - 60000);
+
+                setTimeout(function () {
+                    // window.location = "Expired.aspx";
+                    var apiKey = document.getElementById('<%= hdnApiKey.ClientID %>').value;
+                    var sss1 = apiKey + "LayoutLogin.aspx";
+                    window.location = sss1;
+                }, timeout);
+            };
+
+            function ResetSession() {
+                // Redirect to refresh session.
+                window.location = window.location.href;
+
+            }
+        </script>
+
+    </form>
+</body>
+</html>

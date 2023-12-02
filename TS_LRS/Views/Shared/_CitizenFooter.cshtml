@@ -1,0 +1,65 @@
+﻿<div class="container">
+    <div class="row align-items-start justify-content-between mb-3">
+        <div class="col-sm-1">
+            <a asp-controller="Home" asp-action="Index" class='opacity-1'>
+                <img src='~/Website/img/telanganalogo.png' alt='logo'>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <p>
+                <strong>Municipal Administration & Urban Development</strong>
+                <br />
+                640, AC Guards, MasabTank
+                <br>
+                Opp PTI Building
+                <br>
+                Hyderabad 500 004
+                <br>
+                Off:- 040 2330 2150, Fax:- 040 2330 2151
+            </p>
+        </div>
+        <div class="col-6 col-lg-3">
+            <h5 class='footer-title'>Site Map</h5>
+            <ul>
+                <li><a asp-controller="Officer" asp-action="Plots_UploadCalculation">Officer Login</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="AboutUs">About Us</a></li>
+                <li><a asp-controller="Home" asp-action="FAQs">FAQs</a></li>
+                <li><a asp-controller="Home" asp-action="GOs">GO's and Acts</a></li>
+                @*<li><a asp-controller="DownLoad" asp-action="ShowDownloadPDF" asp-route-fileName="Terms_and_Conditions.pdf" target="_blank">Terms and Conditions</a></li>*@
+            </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+            <h5 class='footer-title'>Reach Us </h5>
+            <ul>
+                @*<li><a target="" href=''><i class="email" ></i> support-lrs@telangana.gov.in</a></li>*@
+                <li><a target="_blank" href='https://lrstelangana.freshdesk.com/support/tickets/new'><img src="~/Website/img/listicon.png" style="width: 30px">Raise a Support Ticket</a></li>
+                <li>
+                    <a target="_blank" href='mailto:support-lrs@telangana.gov.in'>
+                        <img src="~/Website/img/flat-email-icon.png" style="width: 30px">
+                        support-lrs@telangana.gov.in
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href='https://api.whatsapp.com/send?phone=14155238886&text=join%20guide-pack&source=&data=&app_absent='>
+                        <img src="~/Website/img/whatsapp.png" style="width: 30px">
+                        WhatsApp
+                    </a>
+                </li>
+                <li>
+                    <p style="color:forestgreen"><img src="~/Website/img/Support.png" style="width: 30px;">18004258838</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <div class="col-md-12 border-top">
+        <div>
+            <p class="pt-2 text-white">
+                Designed & Developed by :
+                <img src="~/Website/img/cgg_logo.png" />
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,597 @@
+﻿@model TS_LRS.Models.Officer.LayoutUploads
+@{
+    Layout = "~/Views/Shared/_OfficerLayout.cshtml";
+    ViewData["Title"] = "Index";
+}
+<form asp-action="Plots_UploadCalculation" asp-controller="Officer" enctype="multipart/form-data">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="PDLOuterBody_DivGridView" class="row">
+
+                <div class="col-sm-12">
+                    <div class="card card-primary card-ghmc p-5">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <p class="latest_img my-0">
+                                        <i class="fa fa-user"></i>
+                                        Applicant Details
+                                    </p>
+                            </div>
+                            @*<asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel2"
+                            ClientIDMode="Predictable" ViewStateMode="Inherit">
+                            <ProgressTemplate>
+                            <div class="overlay">
+                            <div class="overlayContent">
+                            <div class="loader" style="margin: auto" id="divLoader" runat="server">
+                            </div>
+                            </div>
+                            </div>
+                            </ProgressTemplate>
+                            </asp:UpdateProgress>*@
+                            @* <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <Triggers>
+                            <asp:PostBackTrigger ControlID="btnNext" />
+                            <asp:PostBackTrigger ControlID="Btn_Doc_Download" />
+                            </Triggers>
+                            <ContentTemplate>*@
+                            <div class="card-body">
+                                <div class="row" style="margin: 0">
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        @*<span>Application No.<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtApplicantNumber" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                        <asp:HiddenField ID="hndAuthor" runat="server" />*@
+                                        <label asp-for="ApplicationId" class="required-label"></label>
+                                        <input asp-for="ApplicationId" class="form-control" readonly />
+                                        <span asp-validation-for="ApplicationId" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <label asp-for="LAYOUTOWNERNAME" class="required-label"></label>
+                                        <input asp-for="LAYOUTOWNERNAME" class="form-control" readonly />
+                                        <span asp-validation-for="LAYOUTOWNERNAME" class="text-danger"></span>
+
+                                        @*<span>Applicant Name<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtApplicantName" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>*@
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Father/Spouse Name<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtFatherHusbandName" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Aadhaar Number<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtAadhar" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                        <span>Gender<font color="red">*</font></span>
+                                        <asp:DropDownList ID="ddlGender" CssClass="form-control" runat="server" Enabled="false">
+                                            <asp:ListItem Text="Select Gender" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="Male" Value="M"></asp:ListItem>
+                                            <asp:ListItem Text="Female" Value="F"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>H.No / Door No<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtHousDoorno" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Street / Colony<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtStreetColony" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Locality<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtAppLocality" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Town / City / Village <font color="red">*</font></span>
+                                        <asp:TextBox ID="txtCitymandalviallage" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 " style="display: none">
+                                        <span>Address for Correspondence<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtAddressforCorrespondence" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 col-xl-3 ">
+                                        <span>District :<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtAppDistrict" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Pincode<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtPincode" runat="server" MaxLength="6" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Mobile  Number<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>E-Mail ID<font color="red"></font></span>
+                                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Alternate Mobile Number<font color="red"></font></span>
+                                        <asp:TextBox ID="txtAlterMobileNo" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                        <span>Total Plot Area/Extent in Sq.Yards<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtTotLayoutinmts" runat="server" Enabled="false" MaxLength="10" CssClass="form-control" onkeypress="return validateFloatKeyPress(this, event)"></asp:TextBox>
+                                        <asp:HiddenField ID="hndAreaexnt" runat="server" />
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3 " style="display: none;">
+                                        <span>Total No.of Plots<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtTotalPlots" runat="server" Enabled="false" MaxLength="10" CssClass="form-control"></asp:TextBox>
+
+                                    </div>
+
+                                    <div class="col-md-3 col-lg-3 col-xl-3 " style="display: none;">
+                                        <span>Total Sold Plots<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtTotalSoldPlots" runat="server" Enabled="false" MaxLength="10" CssClass="form-control"></asp:TextBox>
+
+                                    </div>
+
+                                    <div class="col-md-3 col-lg-3 col-xl-3 " style="display: none;">
+                                        <span>Total UnSold Plots<font color="red">*</font></span>
+                                        <asp:TextBox ID="txtTotalUnSoldPlots" runat="server" Enabled="false" MaxLength="10" CssClass="form-control"></asp:TextBox>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body" style="border-bottom-style: inset">
+                                <h3 class="card-title">
+                                    <p class="latest_img my-0">
+                                        Applicant uploaded Documents
+                                    </p>
+                                </h3>
+                                <h3></h3>
+
+                                <div class="row" style="margin: 0">
+                                    <div class="col-md-4 col-lg-4 col-xl-4">
+                                        <span>OwnerShip Document:</span>
+                                        <asp:LinkButton ID="lnkApplicantOwnershipDoc" runat="server"><img src="img/PDF.png" width="20px" height="20px" /></asp:LinkButton>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-xl-4">
+                                        <span>Sale Deed EC:</span>
+                                        <asp:LinkButton ID="lnkApplicantsaleDeed" runat="server"><img src="img/PDF.png" width="20px" height="20px" /></asp:LinkButton>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-xl-4">
+                                        <span>Layout Copy:</span>
+                                        <asp:LinkButton ID="lnkApplicantLayoutCopy" runat="server"><img src="img/PDF.png" width="20px" height="20px" /></asp:LinkButton>
+                                    </div>
+
+                                    <div class="col-md-4 col-lg-4 col-xl-4">
+                                        <span>Layout Plan:</span>
+                                        <asp:LinkButton ID="lnkApplicantLAyoutPlan" runat="server"><img src="img/PDF.png" width="20px" height="20px" /></asp:LinkButton>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-xl-4">
+                                        <span>Other Document:</span>
+                                        <asp:LinkButton ID="lnkApplicantOtherDoc" runat="server"><img src="img/PDF.png" width="20px" height="20px" /></asp:LinkButton>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card card-default" id="Div2" runat="server">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <p class="latest_img my-0">
+                                            <i class="fa fa-boook"></i>
+                                            Plot Details
+                                        </p>
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row" style="display: none;">
+                                        <div class="col-md-4 col-lg-4 col-xl-4 "></div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 " style="text-align: end;">
+                                            <span>Do you want to enter Unsold plot details</span>
+                                        </div>
+                                        <div class="col-md-2 col-lg-2 col-xl-2 ">
+                                            <asp:RadioButtonList ID="rbtnAreaExtent" onclick="checkRadio()" OnSelectedIndexChanged="rbtnAreaExtent_SelectedIndexChanged" AutoPostBack="true" RepeatDirection="Horizontal" runat="server">
+                                                <asp:ListItem Text="Yes" Value="Y" Selected="True"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="N"></asp:ListItem>
+
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row" style="margin: 0; display: none">
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Total No of Plot's<font color="red"></font></label>
+                                            <asp:TextBox ID="txtFITotalplots" AutoPostBack="false" onkeypress="return isNumber(event)" TabIndex="4" OnTextChanged="txtFITotalplots_TextChanged" runat="server" MaxLength="10" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Sold Plots<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtFIsoldplots" runat="server" MaxLength="10" TabIndex="2" onkeypress="return isNumber(event)" AutoPostBack="true" TextMode="Number" OnTextChanged="txtFITotalplots_TextChanged" CssClass="form-control"></asp:TextBox>
+
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <label>Unsold Plots<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtFIUnsoldplots" runat="server" MaxLength="10" Enabled="false" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3" id="divunsoldArea" runat="server" visible="false">
+                                            <label>Total Unsold Plots Area Extent(Sq.Yrds)<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtunsoldAreaextent" onkeypress="return isNumberdecimal(event)" runat="server" MaxLength="10" CssClass="form-control "></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="divPlot" runat="server">
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Layout Name<font color="red"></font></label>
+                                            <asp:TextBox ID="txtlayoutname" runat="server" MaxLength="50" TabIndex="1" CssClass="form-control"></asp:TextBox>
+                                        </div>
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Layout Owner / Plot Owner Name<font color="red"></font></label>
+                                            <asp:TextBox ID="txtOwnerName" runat="server" MaxLength="50" Enabled="false" TabIndex="2" CssClass="form-control"></asp:TextBox>
+
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Owner Mobile Number<font color="red"></font></label>
+                                            <asp:TextBox ID="txtOwnerMobile" runat="server" MaxLength="10" TabIndex="3" Enabled="false" onkeypress="return isNumber(event)" TextMode="Number" CssClass="form-control"></asp:TextBox>
+
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Total No of Plot's<font color="red"></font></label>
+                                            <asp:TextBox ID="txt_NoPlots" AutoPostBack="false" onkeypress="return isNumber(event)" TabIndex="4" OnTextChanged="txtFITotalplots_TextChanged" runat="server" MaxLength="10" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Plot No<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtPlotNo" runat="server" MaxLength="50" TabIndex="5" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Plot Area Extent Sq.Yards.<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtPlotArea_NEW" runat="server" OnTextChanged="txtPlot_TextChanged" AutoPostBack="true" onkeypress="return isNumberdecimal3(event)" MaxLength="10" TabIndex="6" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Road Effected Area Extent Sq.Yards.<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtRoadEffectedArea" runat="server" Text="0" OnTextChanged="txtRoadEffectedArea_TextChanged" AutoPostBack="true" onkeypress="return isNumberdecimal2(event)" MaxLength="10" TabIndex="6" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Net Plot Area Extent Sq.Yards.<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtPlotArea" runat="server" MaxLength="10" TabIndex="6" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 " runat="server" id="divplozonename">
+                                            <label>Zone Name<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtplotZoneName" runat="server" MaxLength="50" TabIndex="5" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 " runat="server" id="divplotCirclename">
+                                            <label>Circle Name<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtplotCircleName" runat="server" MaxLength="50" TabIndex="5" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 " runat="server" id="divplotWardname">
+                                            <label>Ward Name<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtPlotwardName" runat="server" MaxLength="50" TabIndex="5" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Village Name<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtPlotVillagename" runat="server" MaxLength="50" TabIndex="5" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Locality<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtPlotlocality" runat="server" MaxLength="50" TabIndex="5" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Survey Number<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtPlotSurvey" runat="server" MaxLength="50" TabIndex="5" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Land use as per Master Plan/ZDP.<font color="red">*</font></label>
+                                            <asp:DropDownList ID="ddl_zdpplan" CssClass="form-control" runat="server" TabIndex="7" onchange="EnableDisableTextBox(this)">
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 " id="divZDPOther" style="display: none;">
+                                            <label>Others<font color="red">*</font></label>
+                                            <asp:TextBox ID="txtZDPPlan" runat="server" MaxLength="150" TabIndex="8" CssClass="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Latitude</label>
+                                            <asp:TextBox ID="txtLatitude" runat="server" onkeypress="return LatiisNumberdecimal(event)" MaxLength="10" TabIndex="9" CssClass="form-control"></asp:TextBox>
+                                        </div>
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Longitude</label>
+                                            <asp:TextBox ID="txtLongitude" runat="server" onkeypress="return LongiisNumberdecimal(event)" MaxLength="10" TabIndex="10" CssClass="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3" style="display: none;">
+                                            <br />
+
+                                            <asp:Button ID="btnAdd" runat="server" class="btn btn-primary" OnClientClick="return Validate()" Text="Add" OnClick="btnAdd_Click" />
+                                            <asp:Button ID="btnRefresh" runat="server" class="btn btn-primary" Text="Clear" OnClick="btnRefresh_Click" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12 col-xl-12">
+                                            <asp:GridView ID="grvPlots" runat="server"
+                                                          CssClass="table table-striped table-sm table-bordered table-hover" ShowFooter="false"
+                                                          AutoGenerateColumns="false" ShowHeader="true" EmptyDataText="No Records Found" FooterStyle-Font-Bold="true">
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Sno" HeaderStyle-HorizontalAlign="Center">
+                                                        <ItemTemplate>
+                                                            <%# Container.DataItemIndex + 1 %>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Application Number" ItemStyle-HorizontalAlign="Left">
+                                                        <ItemTemplate>
+
+                                                            <asp:Label ID="lnkApplicationNumber" Text='<%# Eval("APPLICATION_ID")%>' runat="server" CssClass="label"></asp:Label>
+
+
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Plot No" ItemStyle-HorizontalAlign="Center">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblLAYOUTOWNERNAME" Text='<%# Eval("PLOT_NUMBER")%>' runat="server" CssClass="label"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Plot Area Extent" ItemStyle-HorizontalAlign="Center">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblMobileNo" Text='<%# Eval("EXTENTINSQYARDS")%>' runat="server" CssClass="label"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                </Columns>
+                                            </asp:GridView>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <p class="latest_img my-0">
+                                            <i class="fa fa-boook"></i>
+                                            Plot Document Upload
+                                        </p>
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row" style="margin: 0">
+                                        <div class="col-md-4 col-lg-4 col-xl-4 ">
+                                            <label>Do you want upload Layout Copy<font color="red">*</font></label>
+                                            <asp:RadioButtonList ID="rbtnPC" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rbtnPC_SelectedIndexChanged" AutoPostBack="true">
+                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="0" Selected="True"></asp:ListItem>
+
+                                            </asp:RadioButtonList>
+                                            <div id="divPC" runat="server">
+                                                <asp:LinkButton ID="lnkLayoutCopyPhotoView" runat="server" Visible="false"><img src="img/PDF.png" width="20px" height="20px" /></asp:LinkButton>
+                                                <asp:FileUpload ID="fileLayout" runat="server" onchange="ValidateSingleInput(this);" />
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-4 col-lg-4 col-xl-4">
+                                            <label>Do you want upload Ownership Document <font color="red">*</font></label>
+                                            <asp:RadioButtonList ID="rbtnOD" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rbtnOD_SelectedIndexChanged" AutoPostBack="true">
+                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="0" Selected="True"></asp:ListItem>
+
+                                            </asp:RadioButtonList>
+                                            <div id="divOD" runat="server">
+                                                <asp:LinkButton ID="lnkOWNERSHIP_DOC" runat="server" Visible="false"><img src="img/PDF.png" width="20px" height="20px" /></asp:LinkButton>
+                                                <asp:FileUpload ID="fileOD" runat="server" onchange="ValidateSingleInput(this);" />
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-xl-4 " id="DivUlcDoc">
+                                            <label>Do you want upload Encumbrance Certificate<font color="red">*</font></label>
+                                            <asp:RadioButtonList ID="rbtnEC" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rbtnEC_SelectedIndexChanged" AutoPostBack="true">
+                                                <asp:ListItem Text="Yes" Value="1"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="0" Selected="True"></asp:ListItem>
+
+                                            </asp:RadioButtonList>
+
+                                            <div id="divEC" runat="server">
+                                                <asp:LinkButton ID="lnkEC_DOC" runat="server" Visible="false"><img src="img/PDF.png" width="20px" height="20px" /></asp:LinkButton>
+                                                <asp:FileUpload ID="fileEC" runat="server" onchange="ValidateSingleInput(this);" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="col-md-9 col-lg-9 col-xl-9 "></div>
+                                        <div class="col-md-9 col-lg-9 col-xl-9 ">
+                                            <asp:LinkButton ID="lnkECcertificate" Text="View Encumbrance Certificate" runat="server" Visible="false" OnClick="lnkECcertificate_Click"></asp:LinkButton>
+                                        </div>
+                                    </div>
+                                    <label><font color="red">Note:Plot Documents Size : 5 MB and Support only .pdf </font></label>
+                                    <br />
+                                    <div class="row" style="margin: 0">
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Plot Image1<font color="red">*</font></label>
+                                            <asp:LinkButton ID="lnkPlotImg1" runat="server" Visible="false"><img src="img/PNG.png" width="20px" height="20px" /></asp:LinkButton>
+                                            <asp:FileUpload ID="fileIMG1" runat="server" onchange="ValidateSingleInputJPG(this);" />
+
+                                        </div>
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Plot Image2<%--<font color="red">*</font>--%></label><asp:LinkButton ID="lnkPlotImg2" runat="server" Visible="false"><img src="img/PNG.png" width="20px" height="20px" /></asp:LinkButton>
+                                            <asp:FileUpload ID="fileIMG2" runat="server" onchange="ValidateSingleInputJPG(this);" />
+
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 " id="DivUlcDoc">
+                                            <label>Plot Image3<%--<font color="red">*</font>--%></label><asp:LinkButton ID="lnkPlotImg3" runat="server" Visible="false"><img src="img/PNG.png" width="20px" height="20px" /></asp:LinkButton>
+                                            <asp:FileUpload ID="fileIMG3" runat="server" onchange="ValidateSingleInputJPG(this);" />
+                                        </div>
+                                        <%-- <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <label>IGRS DOCUMENT LINK</label>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" Text="IGRS Document Link"></asp:LinkButton>
+                                        </div>--%>
+                                    </div>
+
+                                    <label><font color="red">Note: Plot Image File Size : 1 MB and Support only .jpg, .jpeg and .png </font></label>
+                                    <div class="row" style="margin:0" id="igrs_div">
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>SRO Code<font color="red">*</font></label>
+                                            <asp:TextBox ID="txt_srocode" runat="server" Enabled="true" MaxLength="4" onkeypress="return isNumber(event)" CssClass="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Sale Deed Number<font color="red">*</font></label>
+                                            <asp:TextBox ID="txt_saledeedno" runat="server" Enabled="false" MaxLength="10" onkeypress="return isNumber(event)" CssClass="form-control"></asp:TextBox>
+                                        </div>
+
+                                        <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                            <label>Sale Deed Year<font color="red">*</font></label>
+                                            <asp:TextBox ID="txt_saledeedyr" runat="server" Enabled="false" MaxLength="10" onkeypress="return isNumber(event)" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3 " style="display:grid">
+                                            <label><br /></label>
+                                            <asp:Button ID="Btn_Doc_Download" runat="server" class="btn btn-primary" Text="Document Download" OnClientClick="return ValidationDoc()" OnClick="Btn_Doc_Download_Click" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                            </div>
+
+
+                            <div class="card card-default" id="div1" runat="server">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <p class="latest_img my-0">
+                                            <i class="fa fa-boook"></i>
+                                            Plot Questionnaire
+                                        </p>
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <%-- <div class="row" style="margin: 0">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 ">
+                                            <label>1. Whether the site is part of any NALA/ Water Body/FTL/Buffer/Shikkam Land<font color="red">*</font></label>
+                                            <br />
+                                            <asp:RadioButtonList ID="rbtnFTL" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+
+                                    </div>
+
+                                    <br />
+                                    <div class="row" style="margin: 0">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 ">
+                                            <label>2. Whether site is falling in any Govt land / prohibited list/Endowment Land/Waqf Land / ULC / Forest Land <font color="red">*</font></label>
+                                            <br />
+                                            <asp:RadioButtonList ID="rbtnULC" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="row" style="margin: 0">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 ">
+                                            <label>3. Whether any High-Tension Line / Gas pipe line /Water Pipeline is passing through the site <font color="red">*</font></label>
+                                            <br />
+                                            <asp:RadioButtonList ID="rbtnGas" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="row" style="margin: 0">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 ">
+                                            <label>4. Whether plot boundaries are indicated in the layout <font color="red">*</font></label>
+                                            <br />
+                                            <asp:RadioButtonList ID="rbtnPlotboundaries" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="row" style="margin: 0">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 ">
+                                            <label>5. Whether the approach road existing <font color="red">*</font></label>
+                                            <br />
+                                            <asp:RadioButtonList ID="rbtnRoadExist" runat="server" RepeatDirection="Horizontal" onchange="RoadExist()">
+                                                <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row" style="margin: 0" id="divWidthmeters">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 ">
+                                            <label>Width of the approach road in meters<font color="red"></font></label>
+                                            <br />
+                                            <div class="col-md-3 col-lg-3 col-xl-3 ">
+                                                <asp:TextBox ID="txtPlotWidth" runat="server" onkeypress="return isNumberdecimal1(event)" MaxLength="10" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row" style="margin: 0">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 ">
+                                            <label>6. Whether the existing road is affected in road widening / Proposed Master Plan Road/ SRDP / RDP<font color="red">*</font></label>
+                                            <br />
+                                            <asp:RadioButtonList ID="rbtnSRDP" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="row" style="margin: 0">
+                                        <div class="col-md-12 col-lg-12 col-xl-12 ">
+                                            <label>7. Whether the plot falls under master plan open space or layout open space<font color="red">*</font></label>
+                                            <br />
+
+                                            <asp:RadioButtonList ID="rbtnLayoutSpace" runat="server" RepeatDirection="Horizontal">
+                                                <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                            </asp:RadioButtonList>
+
+                                        </div>
+
+                                    </div>
+                                    <br />--%>
+                                    <br />
+                                    <table border="1" style="width:100%">
+                                        <tr><th style="text-align:center">Sl No</th><th>Plot Questionnaire Type</th><th style="text-align:center">Selection</th></tr>
+                                        <tr><td style="text-align:center">1.</td><td>Whether the site is part of any NALA/ Water Body/FTL/Buffer/Shikkam Land<font color="red">*</font></td><td><asp:RadioButtonList ID="rbtnFTL" runat="server" RepeatDirection="Horizontal" CssClass="rbl" Enabled="true"><asp:ListItem Text="Yes" Value="Y"></asp:ListItem><asp:ListItem Text="No" Value="N"></asp:ListItem></asp:RadioButtonList></td></tr>
+                                        <tr><td style="text-align:center">2.</td><td>Whether site is falling in any Govt land / prohibited list/Endowment Land/Waqf Land / ULC / Forest Land <font color="red">*</font></td><td> <asp:RadioButtonList ID="rbtnULC" CssClass="rbl" runat="server" RepeatDirection="Horizontal" Enabled="true">                                        <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>                                        <asp:ListItem Text="No" Value="N"></asp:ListItem>                                    </asp:RadioButtonList></td></tr>
+                                        <tr><td style="text-align:center">3.</td><td>Whether any High-Tension Line / Gas pipe line /Water Pipeline is passing through the site <font color="red">*</font></td><td><asp:RadioButtonList ID="rbtnGas" CssClass="rbl" runat="server" RepeatDirection="Horizontal" Enabled="true">                                        <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>                                        <asp:ListItem Text="No" Value="N"></asp:ListItem>                                    </asp:RadioButtonList></td></tr>
+                                        <tr><td style="text-align:center">4.</td><td>Whether plot boundaries are indicated in the layout <font color="red">*</font></td><td> <asp:RadioButtonList ID="rbtnPlotboundaries" runat="server" RepeatDirection="Horizontal" CssClass="rbl" Enabled="true">                                        <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>                                        <asp:ListItem Text="No" Value="N"></asp:ListItem>                                    </asp:RadioButtonList></td></tr>
+                                        <tr><td style="text-align:center">5.</td><td>Whether the approach road existing <font color="red">*</font></td><td> <asp:RadioButtonList ID="rbtnRoadExist" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="RbtnRoadExist_SelectedIndexChanged" onchange="RoadExist()" CssClass="rbl" Enabled="true">                                        <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>                                        <asp:ListItem Text="No" Value="N"></asp:ListItem>                                    </asp:RadioButtonList></td></tr>
+                                        <tr id="divWidthmeters" runat="server" visible="false"><td></td><td>Width of the approach road in meters<font color="red">*</font></td><td><asp:TextBox ID="txtPlotWidth" onkeypress="return isNumberdecimal1(event)" runat="server" MaxLength="10" CssClass="form-control"></asp:TextBox></td></tr>
+                                        <tr><td style="text-align:center">6.</td><td>Whether the existing road is affected in road widening / Proposed Master Plan Road/ SRDP / RDP<font color="red">*</font></td><td>  <asp:RadioButtonList ID="rbtnSRDP" runat="server" RepeatDirection="Horizontal" CssClass="rbl" Enabled="true">                                        <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>                                        <asp:ListItem Text="No" Value="N"></asp:ListItem>                                    </asp:RadioButtonList></td></tr>
+                                        <tr><td style="text-align:center">7.</td><td>Whether the plot falls under master plan open space or layout open space<font color="red">*</font></td><td> <asp:RadioButtonList ID="rbtnLayoutSpace" runat="server" RepeatDirection="Horizontal" CssClass="rbl" Enabled="true">                                        <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>                                        <asp:ListItem Text="No" Value="N"></asp:ListItem>                                    </asp:RadioButtonList></td></tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-3 ml-auto mr-auto mt-3 text-center" runat="server">
+                                    <asp:Button ID="btnReject" runat="server" class="btn btn-danger" Text="Reject" OnClick="btnReject_Click" />
+
+                                    <asp:Button ID="btnNext" runat="server" class="btn btn-primary" Text="Next" OnClientClick="return ValidationL1()" OnClick="btnNext_Click" />
+                                </div>
+
+                                <br />
+                            </div>
+
+                            <br />
+
+                            <br />
+                            @*</ContentTemplate>
+                            </asp:UpdatePanel>*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

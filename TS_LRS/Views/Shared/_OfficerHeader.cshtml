@@ -1,0 +1,85 @@
+﻿<div class="top-bar">
+    <div class="row no-gutters">
+
+        <div class="col-md-4" style="font-weight: bold;">
+            <span id="datetime"></span>&nbsp;&nbsp;Your Session will expire in <span id="minutesIdle"></span>:<span id="secondsIdle"></span>
+            @*&nbsp;<asp:Button ID="btnReset" Text="Reset" runat="server" OnClientClick="return ResetSession();" Style="color: #f3f1f1; display: inline-block; font-weight: 400; text-align: center; white-space: nowrap; vertical-align: middle; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 0.8; border-radius: .25rem; transition: color .15s; background-color: #28a745; border-color: #28a745; text-decoration: none;" />*@
+            <mar<span id="LastTime"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Last Login Time : <asp:Label ID="LastLogintime" runat="server"></asp:Label>
+        </div>
+        <div class="col-md-8 text-right">
+            <button id="btn-decrease">A-</button>
+            <button id="btn-orig">A</button>
+            <button id="btn-increase">A+</button>
+            <u style="font-size: larger;"><span id="spUser" runat="server"></span></u>
+            <asp:Button Text="Logout" runat="server" ID="btnLogout" OnClick="btnLogout_Click" Style="color: #f3f1f1; display: inline-block; font-weight: 400; text-align: center; white-space: nowrap; vertical-align: middle; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 0.8; border-radius: .25rem; transition: color .15s; background-color: #28a745; border-color: #28a745; text-decoration: none;" />
+            <asp:Button Text="Change Password" runat="server" ID="btnChange" OnClick="btnChange_Click" Style="color: #f3f1f1; display: inline-block; font-weight: 400; text-align: center; white-space: nowrap; vertical-align: middle; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 0.8; border-radius: .25rem; transition: color .15s; background-color: #28a745; border-color: #28a745; text-decoration: none;" />
+        </div>
+    </div>
+</div>
+
+
+<div class="row no-gutters logo">
+    <div class="col-md-10">
+        <div class="">
+
+            <img src="~/Officer/img/telanganalogo.png" alt="telangana logo">
+            <h1 class="text-left">
+                Municipal Administration & Panchayat Raj Departments
+                <span>Layout Regularization Scheme 2020 </span>
+
+                <p class="text-left">Government of Telangana </p>
+            </h1>
+            &nbsp;
+        </div>
+    </div>
+
+    @* <div class="col-md-2">
+    <div class="profile">
+
+    <img src="img/cm.png" />
+    <p>
+
+    <span>Sri K. Chandrashekar Rao </span>
+    <br />
+    Hon’ble Chief Minister
+    </p>
+    </div>
+
+    </div>*@
+
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg_nav">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <asp:Panel runat="server" ID="pnl1">
+            <div runat="server" id="ulMenu" class="nav">
+            </div>
+        </asp:Panel>
+
+        @* <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+        <a class="nav-link" href="ReprintReceipt.aspx">Re-print your application receipt</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="gos.aspx">GOs & ACTS </a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="faqs.aspx">FAQs </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" target="_blank" href="Documents/LRS_User_Guide_1.0.pdf">GUIDELINES </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">DOWNLOADS </a>
+        </li>
+        </ul>*@
+    </div>
+
+</nav>

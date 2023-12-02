@@ -1,0 +1,67 @@
+﻿<div class="top-bar">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <p id="datetime"></p>
+        </div>
+        <div class="col-md-8 text-right">
+            <button id="btn-decrease">A-</button>
+            <button id="btn-orig">A</button>
+            <button id="btn-increase">A+</button>
+            <a href="Login.aspx">Official Login </a>
+        </div>
+    </div>
+</div>
+<div class="row no-gutters logo">
+    <div class="col-md-10">
+        <div class="">
+            <img src="~/Website/img/telanganalogo.png" alt="telangana logo">
+            <h1>
+                Municipal Administration & Panchayat Raj Departments
+                <span>Layout Regularization Scheme 2020 </span>
+                <p>Government of Telangana </p>
+            </h1>
+            &nbsp;
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="profile">
+
+            <img src="~/Website/img/cm.png" />
+            <p>
+                <span>Sri K. Chandrashekar Rao </span> <br /> Hon’ble Chief Minister
+            </p>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg_nav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">HOME<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="AboutUs">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="GOs">GOs & ACTS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="FAQs">FAQs </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="DownLoad" asp-action="ShowDownloadPDF" asp-route-fileName="LRS_User_Guide_1.0.pdf" target="_blank">GUIDELINES </a>
+            </li>
+            <li class="nav-item">
+                @*<a class="nav-link" asp-controller="DownLoad" asp-action="ShowDownloadPDF" asp-route-fileName="Terms_and_Conditions.pdf" target="_blank">TERMS AND CONDITIONS </a>*@
+            </li>
+        </ul>
+    </div>
+    <div class="form-inline my-2 my-lg-0">
+        @* <button class="btn btn-success my-2 my-sm-0" type="submit">Apply Now</button>*@
+        @*<asp:Button Text="Apply for LRS 2020" CssClass="btn btn-success my-2 my-sm-0" PostBackUrl="~/OTP_Validation.aspx" runat="server" />*@
+        @*<button value="Apply for LRS 2020" class="btn btn-success my-2 my-sm-0"></button>*@
+    </div>
+</nav>

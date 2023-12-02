@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_CitizenLayout.cshtml";
+    ViewData["Title"] = "About Us";
+}
+<div class="row no-gutters ">
+    <div class="col-md-8 ml-auto mr-auto">
+        <h2 class="title pt-3">Government Orders / Acts </h2>
+        <ul class="liststyles">
+            <li><a asp-controller="DownLoad" asp-action="ShowDownloadPDF" asp-route-fileName="LRS_GOs.pdf" target="_blank">G.O.Ms.No.131 MA&UD (Plg.III) Dept Telangana State Panchayat Raj & Rural Development and M A & U D - Regularization of Unapproved and Illegal Layout Rules 2020 for Urban and Rural areas Orders Issued</a></li>
+        </ul>
+       @* <ul class="liststyles">
+            <li><a asp-controller="DownLoad" asp-action="ShowDownloadPDF" asp-route-fileName="GO_135.pdf" target="_blank">GO-135-Amendment-to-Telangana-Regularization-of-Unapproved-and-Illegal-Layout-Rules-2020</a></li>
+        </ul>*@
+    </div>
+</div>
